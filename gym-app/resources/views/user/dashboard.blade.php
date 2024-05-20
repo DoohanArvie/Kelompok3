@@ -8,6 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="Kelompok 3 Godzilla FullStack 4">
   <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
   <title>Gym and Court App</title>
 
@@ -388,38 +389,27 @@
     <section class="section" id="contact-us">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-6 col-md-6 col-xs-12">
-                    <div id="map">
-                      <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="600px" frameborder="0" style="border:0" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-xs-12">
+                <div class="col-lg-8 col-md-8 col-xs-12 mx-auto">
                     <div class="contact-form">
-                        <form id="contact" action="" method="post">
-                          <div class="row">
-                            <div class="col-md-6 col-sm-12">
-                              <fieldset>
-                                <input name="name" type="text" id="name" placeholder="Your Name*" required="">
-                              </fieldset>
+                    <h2 style="text-align: center; color:white; margin-bottom:30px;">Masukkan Ulasanmu!!</h2>
+                        <form id="contact" action="{{ route('ulasan.store') }}" method="post">
+                            @csrf
+                            <div class="rating">
+                                <input type="number" name="rating" hidden>
+                                <i class="bx bx-star star" style="--i: 0;"></i>
+                                <i class="bx bx-star star" style="--i: 1;"></i>
+                                <i class="bx bx-star star" style="--i: 2;"></i>
+                                <i class="bx bx-star star" style="--i: 3;"></i>
+                                <i class="bx bx-star star" style="--i: 4;"></i>
                             </div>
-                            <div class="col-md-6 col-sm-12">
+                            <div class="col-lg-12">
                               <fieldset>
-                                <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email*" required="">
-                              </fieldset>
-                            </div>
-                            <div class="col-md-12 col-sm-12">
-                              <fieldset>
-                                <input name="subject" type="text" id="subject" placeholder="Subject">
+                                <textarea name="ulasan" rows="6" id="ulasan" placeholder="Ulasan Anda" required=""></textarea>
                               </fieldset>
                             </div>
                             <div class="col-lg-12">
                               <fieldset>
-                                <textarea name="message" rows="6" id="message" placeholder="Message" required=""></textarea>
-                              </fieldset>
-                            </div>
-                            <div class="col-lg-12">
-                              <fieldset>
-                                <button type="submit" id="form-submit" class="main-button">Send Message</button>
+                                <button type="submit" id="form-submit" class="main-button">Bagikan Ulasan</button>
                               </fieldset>
                             </div>
                           </div>
@@ -430,7 +420,7 @@
         </div>
     </section>
     <!-- ***** Contact Us Area Ends ***** -->
-    
+
     <!-- ***** Footer Start ***** -->
     <footer>
         <div class="container">
@@ -446,9 +436,11 @@
         </div>
     </footer>
 
+    <!-- Rating Star -->
+    <script src="{{ asset('js/rating.js') }}"></script>
+
     <!-- jQuery -->
     <script src="{{ asset('js/jquery-2.1.0.min.js') }}"></script>
-
 
     <!-- Bootstrap -->
     <script src="{{ asset('js/popper.js') }}"></script>

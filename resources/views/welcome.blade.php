@@ -188,6 +188,108 @@
         </div>
     </div>
 </section>
+        <!-- ***** Fitness Section Starts ***** -->
+<section class="section" id="sewa-alat">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2>Sewa Alat</h2>
+                    <img src="{{ asset('images/line-dec.png') }}" alt="waves">
+                    <p>Kami menyediakan berbagai peralatan olahraga berkualitas tinggi untuk disewa.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Alat 1 Card -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100">
+                    <img class="card-img-top" src="{{ asset('images/treadmil.jpg') }}" alt="Treadmill">
+                    <div class="card-body">
+                        <h5 class="card-title">Paket 2 Jam</h5>
+                        <p class="card-text">Harga: 30k per jam</p>
+                        <a href="#" class="btn btn-primary">Sewa Sekarang</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Alat 2 Card -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100">
+                    <img class="card-img-top" src="{{ asset('images/dumbell.jpg') }}" alt="Dumbbell Set">
+                    <div class="card-body">
+                        <h5 class="card-title">Paket 3 Jam</h5>
+                        <p class="card-text">Harga: 40k per jam</p>
+                        <a href="#" class="btn btn-primary">Sewa Sekarang</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Alat 3 Card -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100">
+                    <img class="card-img-top" src="{{ asset('images/bikes.jpg') }}" alt="Exercise Bike">
+                    <div class="card-body">
+                        <h5 class="card-title">Paket 5 Jam</h5>
+                        <p class="card-text">Harga: 50k per jam</p>
+                        <a href="#" class="btn btn-primary">Sewa Sekarang</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Fitness Section End ***** -->
+
+<!-- ***** Sewa Lapangan Section Starts ***** -->
+<section class="section" id="sewa-lapangan">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2>Sewa Lapangan</h2>
+                    <img src="{{ asset('images/line-dec.png') }}" alt="waves">
+                    <p>Sewa lapangan olahraga dengan fasilitas terbaik untuk berbagai keperluan.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Futsal Card -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100">
+                    <img class="card-img-top" src="{{ asset('images/lapangan_futsal.jpeg') }}" alt="Futsal">
+                    <div class="card-body">
+                        <h5 class="card-title">Futsal</h5>
+                        <p class="card-text">Harga: 120k per jam</p>
+                        <a href="#" class="btn btn-primary">Sewa Sekarang</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Basket Card -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100">
+                    <img class="card-img-top" src="{{ asset('images/lapangan_basket.jpeg') }}" alt="Basket">
+                    <div class="card-body">
+                        <h5 class="card-title">Basket</h5>
+                        <p class="card-text">Harga: 100k per jam</p>
+                        <a href="#" class="btn btn-primary">Sewa Sekarang</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Badminton Card -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100">
+                    <img class="card-img-top" src="{{ asset('images/badminton.jpeg') }}" alt="Badminton">
+                    <div class="card-body">
+                        <h5 class="card-title">Badminton</h5>
+                        <p class="card-text">Harga: 60k per jam</p>
+                        <a href="#" class="btn btn-primary">Sewa Sekarang</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Sewa Lapangan Section Ends ***** -->
+
     <!-- ***** Features Item End ***** -->
 
     <!-- ***** Call to Action Start ***** -->

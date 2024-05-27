@@ -1090,7 +1090,45 @@ contact
   background-color: #f9735b;
 }
 
+/* Media sosial */
+.medsos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15%; 
+}
 
+.sosmed {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sosmed svg {
+  width: 40px;
+  height: 40px;
+}
+
+.sosmed svg:hover {
+  color: #838b83;
+}
+
+.sosmed li {
+padding-right: 30px;
+}
+
+.whatsapp {
+  fill: #1dc21d;
+}
+.youtube {
+  color: rgb(236, 15, 15);
+}
+
+.instagram {
+  color: #C13584;
+}
 
 
 /* 

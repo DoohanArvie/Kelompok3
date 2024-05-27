@@ -272,6 +272,37 @@
     </section>
     <!-- ***** Trainer Ends ***** -->
 
+    <!-- ** Ulasan Section Starts ** -->
+    <section class="section" id="ulasan">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-heading">Ulasan</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="scroll-container">
+                    @foreach($ulasan as $ulasan)
+                    <div class="col-lg-4 review-card">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Rating: 
+                                    @for ($i = 0; $i < $ulasan->rating; $i++)
+                                        <i class="bx bxs-star star"></i>
+                                    @endfor
+                                </h5>
+                                <p><b>Pengulas: {{ $ulasan->user->name }}</b></p>
+                                <p class="card-text">{{ $ulasan->ulasan }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>    
+    </section>
+    <!-- ** Ulasan Section Ends ** -->
+
     <!-- ***** Contact Us Area Starts ***** -->
     <section class="section" id="contact-us">
         <div class="container-fluid">

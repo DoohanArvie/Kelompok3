@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
+
   <title>User Gym and Court App</title>
 
   <!-- Additional CSS Files -->
@@ -43,7 +44,7 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="{{ url('/dashboard') }}" class="logo">Training<em> Studio</em></a>
+                        <a href="{{ url('/dashboard') }}" class="logo">Godzilla<em> GYM</em></a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
@@ -210,42 +211,52 @@
         </div>
     </section>
 
-    <!-- ***** Ulasan Starts ***** -->
-    <section class="section" id="contact-us">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-8 col-md-8 col-xs-12 mx-auto">
-                    <div class="contact-form">
+   <!-- ***** Ulasan Starts ***** -->
+<section class="section" id="contact-us">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-xs-12 mx-auto">
+                <div class="contact-form">
                     <h2 style="text-align: center; color:white; margin-bottom:30px;">Masukkan Ulasanmu!!</h2>
-                        <form id="contact" action="{{ route('ulasan.store') }}" method="post">
-                            @csrf
-                            <div class="rating">
-                                <input type="number" name="rating" hidden>
-                                <i class="bx bx-star star" style="--i: 0;"></i>
-                                <i class="bx bx-star star" style="--i: 1;"></i>
-                                <i class="bx bx-star star" style="--i: 2;"></i>
-                                <i class="bx bx-star star" style="--i: 3;"></i>
-                                <i class="bx bx-star star" style="--i: 4;"></i>
-                            </div>
-                            <div class="col-lg-12">
-                              <fieldset>
-                                <textarea name="ulasan" rows="6" id="ulasan" placeholder="Ulasan Anda" required=""></textarea>
-                              </fieldset>
-                            </div>
-                            <div class="col-lg-12">
-                              <fieldset>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <form id="contact" action="{{ route('ulasan.store') }}" method="post">
+                        @csrf
+                        <div class="rating">
+                            <input type="number" name="rating" id="rating-input" hidden>
+                            <i class="bx bx-star star" style="--i: 0;" data-value="1"></i>
+                            <i class="bx bx-star star" style="--i: 1;" data-value="2"></i>
+                            <i class="bx bx-star star" style="--i: 2;" data-value="3"></i>
+                            <i class="bx bx-star star" style="--i: 3;" data-value="4"></i>
+                            <i class="bx bx-star star" style="--i: 4;" data-value="5"></i>
+                        </div>
+                        <div class="col-lg-12">
+                            <fieldset>
+                                <textarea name="ulasan" rows="6" id="ulasan" placeholder="Ulasan Anda" required class="@error('ulasan') is-invalid @enderror"></textarea>
+                                @error('ulasan')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-12">
+                            <fieldset>
                                 <button type="submit" id="form-submit" class="main-button">Bagikan Ulasan</button>
-                              </fieldset>
-                            </div>
-                          </div>
-                        </form>
-                    </div>
+                            </fieldset>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- ***** Ulasan Ends ***** -->
-
+    </div>
+</section>
+<!-- ***** Ulasan Ends ***** -->
     </section>
     <!-- ***** Footer Start ***** -->
     <footer>
@@ -294,5 +305,32 @@
 
    <!-- Global Init -->
     <script src="{{ asset('js/custom.js') }}"></script>
+
+    <script>
+     document.addEventListener('DOMContentLoaded', (event) => {
+        const stars = document.querySelectorAll('.star');
+        const ratingInput = document.getElementById('rating-input');
+
+        stars.forEach((star, index) => {
+            star.addEventListener('click', () => {
+                ratingInput.value = star.getAttribute('data-value');
+                stars.forEach((s, i) => {
+                    if (i <= index) {
+                        s.classList.remove('bx-star');
+                        s.classList.add('bxs-star');
+                    } else {
+                        s.classList.remove('bxs-star');
+                        s.classList.add('bx-star');
+                    }
+                });
+            });
+        });
+
+        // Scroll to the form if there are validation errors
+        @if ($errors->any())
+            window.location.hash = '#contact-us';
+        @endif
+    });
+</script>
 </body>
 </DOCTYPE>

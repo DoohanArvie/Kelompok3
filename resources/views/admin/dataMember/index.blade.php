@@ -27,7 +27,7 @@
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->userType }}</td>
                                         <td>
-                                        <a class="btn btn-warning btn-sm" href="{{ route('admin.dataMembers.edit', $user->id) }}">Edit</a>
+                                        <a class="btn btn-warning btn-sm" href="{{ route('admin.dataMember.edit', $user->id) }}">Edit</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -45,4 +45,4 @@
 
             </div>
             <!-- End of Main Content -->
-@endsection            
+@endsection

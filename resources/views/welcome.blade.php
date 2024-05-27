@@ -20,7 +20,23 @@
 
     <style>
 .star {color:orange;
-}</style>
+}
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none; /* For Firefox */
+    }
+
+    .scroll-container::-webkit-scrollbar {
+        display: none; /* For Chrome, Safari, and Opera */
+    }
+
+    .review-card {
+        flex: 0 0 auto; /* Prevent flex items from shrinking */
+        margin-right: 10px; /* Adjust spacing between cards if needed */
+    }
+</style>
 
 </head>
 
@@ -371,7 +387,7 @@
                     <div class="section-heading dark-bg">
                         <h2>Jadwal <em>Kelas</em></h2>
                         <img src="{{ asset('images/line-dec.png') }}" alt="">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit odio esse voluptatem pariatur consequuntur! Repellendus voluptatibus a earum neque cumque, sint dolorum. Tempora, praesentium autem. Enim nobis voluptates veniam numquam!</p>
+                        <p>Pilih waktu dan sesuaikan jadwal kelasmu dengan berbagai kegiatan harianmu</p>
                     </div>
                 </div>
             </div>
@@ -379,36 +395,38 @@
                 <div class="col-lg-12">
                     <div class="filters">
                         <ul class="schedule-filter">
-                            <li class="active" data-tsfilter="monday">Monday</li>
-                            <li data-tsfilter="tuesday">Tuesday</li>
-                            <li data-tsfilter="wednesday">Wednesday</li>
-                            <li data-tsfilter="thursday">Thursday</li>
-                            <li data-tsfilter="friday">Friday</li>
+                            <li data-tsfilter="Senin">Senin</li>
+                            <li data-tsfilter="Selasa">Selasa</li>
+                            <li data-tsfilter="Rabu">Rabu</li>
+                            <li data-tsfilter="Kamis">Kamis</li>
+                            <li data-tsfilter="Jum'at">Jum'at</li>
+                            <li data-tsfilter="Sabtu">Sabtu</li>
+                            <li data-tsfilter="Minggu">Minggu</li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-10 offset-lg-1">
                     <div class="schedule-table filtering">
                         <table>
+                            <thead>
+                                <tr class="text-center">
+                                    <td>Kelas</td>
+                                    <td>Trainer</td>
+                                    <td>Waktu</td>
+                                </tr>
+                            </thead>
                             <tbody>
-                                <tr>
-                                    <td class="day-time">Fitness Class</td>
-                                    <td class="monday ts-item show" data-tsmeta="monday">10:00AM - 11:30AM</td>
-                                    <td class="tuesday ts-item" data-tsmeta="tuesday">2:00PM - 3:30PM</td>
-                                    <td>William G. Stewart</td>
-                                </tr>
-                                <tr>
-                                    <td class="day-time">Body Building</td>
-                                    <td class="friday ts-item" data-tsmeta="friday">10:00AM - 11:30AM</td>
-                                    <td class="thursday friday ts-item" data-tsmeta="thursday" data-tsmeta="friday">2:00PM - 3:30PM</td>
-                                    <td>Paul D. Newman</td>
-                                </tr>
-                                <tr>
-                                    <td class="day-time">Body Building</td>
-                                    <td class="tuesday ts-item" data-tsmeta="tuesday">10:00AM - 11:30AM</td>
-                                    <td class="monday ts-item show" data-tsmeta="monday">2:00PM - 3:30PM</td>
-                                    <td>Boyd C. Harris</td>
-                                </tr>
+                                @foreach($groupedClasses as $day => $classes)
+                                    @foreach($classes as $class)                                       
+                                            <tr>
+                                                <td class="day-time">{{ $class->class_name }}</td>                                                                                  
+                                                <td>{{ $class->trainer->name }}</td>
+                                                <td class="{{ strtolower($day) }} ts-item carbon" style="border-right:none;">
+                                                    {{ \Carbon\Carbon::parse($class->start_time)->format('g:iA') }} - {{ \Carbon\Carbon::parse($class->end_time)->format('g:iA') }}
+                                                </td>   
+                                            </tr>                                      
+                                    @endforeach
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -416,6 +434,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- ***** Testimonials Starts ***** -->
     <section class="section" id="trainers">
@@ -498,24 +517,27 @@
                 </div>
             </div>
             <div class="row">
-                @foreach($ulasan as $ulasan)
-                <div class="col-lg-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Rating: 
-                                @for ($i = 0; $i < $ulasan->rating; $i++)
-                                    <i  class="bx bxs-star star"></i>
-                                @endfor
-                            </h5>
-                            <p><b>Pengulas: {{ $ulasan->user->name }}</b></p>
-                            <p class="card-text">{{ $ulasan->ulasan }}</p>
+                <div class="scroll-container">
+                    @foreach($ulasan as $ulasan)
+                    <div class="col-lg-4 review-card">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Rating: 
+                                    @for ($i = 0; $i < $ulasan->rating; $i++)
+                                        <i class="bx bxs-star star"></i>
+                                    @endfor
+                                </h5>
+                                <p><b>Pengulas: {{ $ulasan->user->name }}</b></p>
+                                <p class="card-text">{{ $ulasan->ulasan }}</p>
+                            </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
-                @endforeach
             </div>
         </div>    
     </section>
+
     <!-- ***** Ulasan Section Ends ***** -->
 
     <!-- ***** Contact Us Area Starts ***** -->
@@ -609,5 +631,24 @@
 
    <!-- Global Init -->
     <script src="{{ asset('js/custom.js') }}"></script>
+
+    <script>
+          document.addEventListener('DOMContentLoaded', function() {
+    const scrollContainer = document.querySelector('.scroll-container');
+    let scrollAmount = 0;
+    const scrollStep = 1; // Adjust this value to change the scrolling speed
+
+    function scrollHorizontally() {
+        scrollAmount += scrollStep;
+        if (scrollAmount >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
+            scrollAmount = 0;
+        }
+        scrollContainer.scrollLeft = scrollAmount;
+        requestAnimationFrame(scrollHorizontally);
+    }
+
+    scrollHorizontally();
+});
+    </script>
 </body>
 </DOCTYPE>

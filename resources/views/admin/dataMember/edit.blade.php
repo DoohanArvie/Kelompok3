@@ -7,8 +7,9 @@
                     </div>
 
                     <!-- Content Row -->
-                    <form action="{{ route('admin.dataMembers.update', $user->id) }}" method="POST">
-                        @csrf
+                    <form action="{{ route('admin.dataMember.update', $user->id) }}" method="POST">
+                    @csrf>    
+                    @csrf
                         @method('PUT')
                         <div class="form-group">
                             <label for="name">Nama</label>

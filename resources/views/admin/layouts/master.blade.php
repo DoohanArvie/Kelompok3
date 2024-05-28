@@ -62,7 +62,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ url('/admin.dataTrainer') }}">
                     <i class="fas fa-fw fa-clock"></i>
                     <span>Kelas & Trainer</span></a>
             </li>

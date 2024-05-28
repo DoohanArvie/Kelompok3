@@ -23,4 +23,9 @@ class Trainer extends Model
         'phone',
     ];
 
+    public function classes()
+    {
+        return $this->hasMany(Classes::class, 'id_trainers');
+    }
+
 }

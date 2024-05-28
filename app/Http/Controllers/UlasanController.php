@@ -5,14 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ulasan;
 use App\Models\Trainer;
-use App\Models\Clasess;
+use App\Models\Classes;
 
 class UlasanController extends Controller
 {
     public function index()
     {
-        $clasess = Clasess::with('trainer')->get();
-        $groupedClasses = $clasess->groupBy('day');
+        $classes = Classes::with('trainer')->get();
+        $groupedClasses = $classes->groupBy('day');
         $trainers = Trainer::all();
         $ulasan = Ulasan::with('user')->get();
         return view('welcome', compact('classes' , 'groupedClasses' , 'trainers' ,  'ulasan'));

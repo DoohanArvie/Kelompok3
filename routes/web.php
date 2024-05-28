@@ -41,8 +41,8 @@ route::get('/member.dashboard', [MemberController::class, 'index']);
 route::get('/admin.dataMember', [DataMemberController::class, 'index'])->name('admin.dataMembers.index');
 route::get('/admin', [AdminController::class, 'index']);
 
-Route::get('/admin.dataMember/{id}/edit', [DataMemberController::class, 'edit'])->name('admin.dataMembers.edit');
-Route::put('/admin.dataMember/{id}', [DataMemberController::class, 'update'])->name('admin.dataMembers.update');
+Route::get('/admin.dataMember/{id}/edit', [DataMemberController::class, 'edit'])->name('admin.dataMember.edit');
+Route::put('/admin.dataMember/{id}', [DataMemberController::class, 'update'])->name('admin.dataMember.update');
 
 Route::middleware('auth')->group(function () {
     Route::get('/ulasan', [UlasanController::class, 'index'])->name('ulasan.index');

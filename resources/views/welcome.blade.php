@@ -95,7 +95,7 @@
                 <h6>Kekuatan, ketahanan, kebugaran</h6>
                 <h2>Semua <em>disini</em></h2>
                 <div class="main-button scroll-to-section">
-                    <a href="#features">Daftar member</a>
+                    <a href="{{ route('register') }}">Daftar member</a>
                 </div>
             </div>
         </div>
@@ -255,56 +255,7 @@
 </section>
 <!-- ***** Fitness Section End ***** -->
 
-<!-- ***** Sewa Lapangan Section Starts ***** -->
-<section class="section" id="sewa-lapangan">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 offset-lg-3">
-                <div class="section-heading">
-                    <h2>Sewa Lapangan</h2>
-                    <img src="{{ asset('images/line-dec.png') }}" alt="waves">
-                    <p>Sewa lapangan olahraga dengan fasilitas terbaik untuk berbagai keperluan.</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <!-- Futsal Card -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100">
-                    <img class="card-img-top" src="{{ asset('images/lapangan_futsal.jpeg') }}" alt="Futsal">
-                    <div class="card-body">
-                        <h5 class="card-title">Futsal</h5>
-                        <p class="card-text">Harga: 120k per jam</p>
-                        <a href="#" class="btn btn-primary">Sewa Sekarang</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Basket Card -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100">
-                    <img class="card-img-top" src="{{ asset('images/lapangan_basket.jpeg') }}" alt="Basket">
-                    <div class="card-body">
-                        <h5 class="card-title">Basket</h5>
-                        <p class="card-text">Harga: 100k per jam</p>
-                        <a href="#" class="btn btn-primary">Sewa Sekarang</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Badminton Card -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100">
-                    <img class="card-img-top" src="{{ asset('images/badminton.jpeg') }}" alt="Badminton">
-                    <div class="card-body">
-                        <h5 class="card-title">Badminton</h5>
-                        <p class="card-text">Harga: 60k per jam</p>
-                        <a href="#" class="btn btn-primary">Sewa Sekarang</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ***** Sewa Lapangan Section Ends ***** -->
+
 
     <!-- ***** Features Item End ***** -->
 
@@ -437,75 +388,37 @@
 
 
     <!-- ***** Testimonials Starts ***** -->
+    <!-- ***** Trainer ***** -->
     <section class="section" id="trainers">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
-                        <h2>Expert <em>Trainers</em></h2>
+                        <h2>Instruktur <em>Kami</em></h2>
                         <img src="{{ asset('images/line-dec.png') }}" alt="">
-                        <p>Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
+                        <p>Kami memiliki Instruktur yang profesional dan berpengalaman di bidangnya, memastikan agar Anda mendapatkan kualitas pelatihan terbaik</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="{{ asset('images/first-trainer.jpg') }}" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span>Strength Trainer</span>
-                            <h4>Bret D. Bowers</h4>
-                            <p>Bitters cliche tattooed 8-bit distillery mustache. Keytar succulents gluten-free vegan church-key pour-over seitan flannel.</p>
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                            </ul>
+                @foreach($trainers as $trainer)
+                    <div class="col-lg-4">
+                        <div class="trainer-item">
+                            <div class="image-thumb">
+                                <img src="{{ $trainer->picture ? asset('storage/trainers/' . $trainer->picture) : asset('images/default-trainer.jpg') }}" alt="">
+                            </div>
+                            <div class="down-content">
+                                <span>{{ $trainer->category }}</span>
+                                <h4>{{ $trainer->name }}</h4>
+                                <p class="card-text">{{ $trainer->description }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="{{ asset('images/second-trainer.jpg') }}" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span>Muscle Trainer</span>
-                            <h4>Hector T. Daigl</h4>
-                            <p>Bitters cliche tattooed 8-bit distillery mustache. Keytar succulents gluten-free vegan church-key pour-over seitan flannel.</p>
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="{{ asset('images/third-trainer.jpg') }}" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span>Power Trainer</span>
-                            <h4>Paul D. Newman</h4>
-                            <p>Bitters cliche tattooed 8-bit distillery mustache. Keytar succulents gluten-free vegan church-key pour-over seitan flannel.</p>
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @endforeach   
             </div>
         </div>
     </section>
+    <!-- ***** Trainer Ends ***** -->
     <!-- ***** Testimonials Ends ***** -->
 
     <!-- ***** Ulasan Section Starts ***** -->

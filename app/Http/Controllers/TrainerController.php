@@ -118,11 +118,11 @@ class TrainerController extends Controller
         }
 
         if ($request->filled('category')) {
-            $dataToUpdate['category'] = $request->name;
+            $dataToUpdate['category'] = $request->category;
         }
 
         if ($request->filled('description')) {
-            $dataToUpdate['description'] = $request->name;
+            $dataToUpdate['description'] = $request->description;
         }
     
         if ($request->filled('gender')) {

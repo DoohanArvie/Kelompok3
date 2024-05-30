@@ -1,4 +1,10 @@
 <x-guest-layout>
+    @if (session('message'))
+        <div class="mb-4 font-medium text-sm text-green-600">
+            {{ session('message') }}
+        </div>
+    @endif
+
     <form method="POST" action="{{ route('register') }}">
         @csrf
 

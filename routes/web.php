@@ -11,6 +11,11 @@ use App\Http\Controllers\DataMemberController;
 use App\Http\Controllers\UlasanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TrainerController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Auth\RegisteredUserController;
+use Illuminate\Support\Facades\Mail;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +38,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::middleware(['auth', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
 
 route::get('/home', [HomeController::class, 'index']);
 route::get('/member', [UserdasboardController::class, 'index']);
@@ -67,5 +77,25 @@ Route::get('/admin/dataClass/{id}/edit', [ClassController::class, 'edit'])->name
 Route::post('/admin/dataClass/{id}/update', [ClassController::class, 'update'])->name('admin.dataClass.update');
 Route::put('admin/dataClass/{id}/update', [ClassController::class, 'update'])->name('admin.dataClass.update');
 Route::get('/admin/dataClass/{id}/delete', [ClassController::class, 'destroy'])->name('admin.dataClass.destroy');
+
+
+// Route for displaying the add photo form
+Route::get('user/{id}/add-photo-form', [DatauserController::class, 'addPhotoForm'])->name('user.addPhotoForm');
+
+// Route for submitting the photo
+Route::post('user/{id}/add-photo', [DatauserController::class, 'addPhoto'])->name('user.addPhoto');
+
+// Route for deleting the photo
+Route::post('user/{id}/delete-photo', [DatauserController::class, 'deletePhoto'])->name('user.deletePhoto');
+
+// Routes for member profile
+Route::get('member/{id}/profile/edit', [DatauserController::class, 'editMemberProfile'])->name('member.profile.edit');
+// Add other member profile related routes if necessary
+
+// Routes for admin profile
+Route::get('admin/{id}/profile/edit', [DatauserController::class, 'editAdminProfile'])->name('admin.profile.edit');
+// Add other admin profile related routes if necessary
+//Auth::routes(['verify'=>true]);
+
 
 require __DIR__.'/auth.php';

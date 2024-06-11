@@ -64,7 +64,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('user.cart')}}">
                     <i class="fas fa-fw fa-calendar-day"></i>
-                    <span>Pemesanan Paket</span></a>
+                    <span>Paket Fitness</span></a>
             </li>
 
             <!-- Nav Item - Charts -->
@@ -78,21 +78,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-dumbbell"></i>
-                    <span>Paket Fitness</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-dumbbell"></i>
                     <span>Kelas Saya</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-file-invoice-dollar"></i>
-                    <span>Pembayaran</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
@@ -138,26 +124,31 @@
                     <ul class="navbar-nav ml-auto">                                                                
                      <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
+                            @php
+                                $time = now()->format('H');
+
+                                if ($time < "11") {
+                                    $greeting = "Selamat pagi";
+                                } else if ($time < "16") {
+                                    $greeting = "Selamat siang";
+                                } else if ($time < "18") {
+                                    $greeting = "Selamat sore";
+                                } else {
+                                    $greeting = "Selamat malam";
+                                }
+                            @endphp
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ $greeting }}, {{ Auth::user()->name }}</span>
                                 <img class="img-profile rounded-circle"
-                                    src="{{ asset('images/undraw_profile.svg') }}">
+                                    src="{{ Auth::user()->picture ? asset('storage/' . Auth::user()->picture) : asset('images/undraw_profile.svg') }}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="{{ route('profile.edit', Auth::id()) }}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
+                                    Edit Profile
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="login.blade.php" data-toggle="modal" data-target="#logoutModal">
@@ -177,20 +168,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    @php
-                        $time = now()->format('H');
-
-                        if ($time < "4") {
-                            $greeting = "Selamat pagi";
-                        } else if ($time < "9") {
-                            $greeting = "Selamat siang";
-                        } else if ($time < "12") {
-                            $greeting = "Selamat sore";
-                        } else {
-                            $greeting = "Selamat malam";
-                        }
-                    @endphp
-                        <h5 class="h4 mb-0 text-gray-800" style="font-family: times new roman;">{{ $greeting }}, {{ Auth::user()->name }}</h5>
+                    
                     </div>
 
                     @yield('user.layouts.index')
@@ -246,6 +224,8 @@
         </div>
     </div>
 
+    @include('sweetalert::alert')
+    
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

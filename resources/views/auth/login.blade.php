@@ -22,19 +22,24 @@
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
-            <!-- Remember Me -->
-            <div class="mb-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded" name="remember">
-                    <span class="ms-2 text-sm text-gray-600">Simpan Login</span>
-                </label>
+            <!-- Lupa Password dan Simpan Login -->
+            <div class="flex justify-between items-center mb-4">
+                <div>
+                    <a href="{{ route('password.request') }}" class="text-sm text-gray-600 hover:text-gray-900">Lupa Password?</a>
+                </div>
+                <div>
+                    <label for="remember_me" class="inline-flex items-center">
+                        <input id="remember_me" type="checkbox" class="rounded" name="remember">
+                        <span class="ml-2 text-sm text-gray-600">Simpan Login</span>
+                    </label>
+                </div>
             </div>
 
             <button type="submit" class="btn w-full">Masuk</button>
         </form>
 
         <div class="text-center mt-4">
-            <a href="{{ route('register') }}" class="text-sm text-gray-600 hover:text-gray-900">Belum memiliki akun? Registrasi disini !</a>
+            <a href="{{ route('register') }}" class="text-sm text-gray-600 hover:text-gray-900">Belum memiliki akun? Registrasi disini!</a>
         </div>
     </div>
 </x-guest-layout>

@@ -49,7 +49,6 @@ route::get('/home', [HomeController::class, 'index']);
 route::get('/user', [UserdasboardController::class, 'index'])->name('user.pesanan');
 route::get('/schedule', [UserdasboardController::class, 'schedule'])->name('user.schedule');
 route::get('/dashboard', [DashboardController::class, 'index'])->name('user');
-route::get('/member.dashboard', [MemberController::class, 'index']);
 route::get('/admin.dataUser', [DatauserController::class, 'index'])->name('admin.dataUsers.index');
 route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
@@ -96,11 +95,11 @@ Route::post('/admin/dataProgram/{id}/update', [ProgramController::class, 'update
 Route::put('admin/dataProgram/{id}/update', [ProgramController::class, 'update'])->name('admin.dataProgram.update');
 Route::get('/admin/dataProgram/{id}/delete', [ProgramController::class, 'destroy'])->name('admin.dataProgram.destroy');
 
-Route::get('user/{id}/add-photo-form', [DatauserController::class, 'addPhotoForm'])->name('user.addPhotoForm');
-Route::post('user/{id}/add-photo', [DatauserController::class, 'addPhoto'])->name('user.addPhoto');
-Route::post('user/{id}/delete-photo', [DatauserController::class, 'deletePhoto'])->name('user.deletePhoto');
-Route::get('member/{id}/profile/edit', [DatauserController::class, 'editMemberProfile'])->name('member.profile.edit');
-Route::get('admin/{id}/profile/edit', [DatauserController::class, 'editAdminProfile'])->name('admin.profile.edit');
+
+// PROFIL
+
+// SELESAI PROFIL
+
 
 Route::get('/admin/dataOrder', [OrderController::class, 'index'])->name('admin.dataOrder.index');
 Route::get('/order', [OrderController::class, 'orderForm'])->name('order_form');
@@ -144,5 +143,8 @@ Route::get('/booking/{id_booking}', [BookingController::class, 'generateInvoice'
 // routes/web.php
 Route::post('/payment/notification', [PaymentController::class, 'notificationHandler'])->name('payment.notification');
 Route::get('/order/status/{orderId}', [PaymentController::class, 'getStatus'])->name('order.status');
+
+Route::get('/profile/edit/{id}', [DataUserController::class, 'edit'])->name('profile.edit');
+Route::put('/profile/update/{id}', [DataUserController::class, 'update'])->name('profile.update');
 
 require __DIR__.'/auth.php';

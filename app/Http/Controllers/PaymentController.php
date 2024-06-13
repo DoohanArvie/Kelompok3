@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Midtrans\Config;
 use Midtrans\Snap;
+use Midtrans\Notification;
 use App\Models\Order;
 
 class PaymentController extends Controller
@@ -64,32 +65,57 @@ class PaymentController extends Controller
 
     public function notificationHandler(Request $request)
     {
-        $serverKey = config('midtrans.server_key');
-        $hashed = hash('sha512', $request->order_id.$request->status_code.$request->gross_amount.$serverKey);
+        // Set Midtrans configuration
+        Config::$serverKey = config('midtrans.server_key');
+        Config::$isProduction = config('midtrans.is_production');
+        Config::$isSanitized = true;
+        Config::$is3ds = true;
 
-        if ($hashed == $request->signature_key) {
-            $order = Order::where('id_order', explode('-', $request->order_id)[0])->first();
+        try {
+            $notif = new Notification();
+
+            $transaction = $notif->transaction_status;
+            $fraud = $notif->fraud_status;
+            $orderId = explode('-', $notif->order_id)[0];
+            $order = Order::where('id_order', $orderId)->first();
+
             if ($order) {
-                switch ($request->transaction_status) {
+                switch ($transaction) {
                     case 'capture':
-                        $order->payment_date = now();
-                        $order->status = 'Lunas';
-                        $order->save();
-                        return response()->json(['payment_status' => 'Lunas']);
+                        if ($fraud == 'challenge') {
+                            // Set payment status in merchant's database to 'challenge'
+                            $order->status = 'Challenge';
+                        } else if ($fraud == 'accept') {
+                            // Set payment status in merchant's database to 'success'
+                            $order->payment_date = now();
+                            $order->status = 'Lunas';
+                        }
+                        break;
+                    case 'cancel':
+                    case 'expire':
+                        // Set payment status in merchant's database to 'failure'
+                        $order->status = 'Failure';
                         break;
                     case 'deny':
-                        // Handle other cases
+                        // Set payment status in merchant's database to 'failure'
+                        $order->status = 'Denied';
                         break;
-                    case 'challenge':
-                        // Handle other cases
+                    case 'pending':
+                        // Set payment status in merchant's database to 'pending'
+                        $order->status = 'Pending';
                         break;
                     default:
-                        // Handle other cases
+                        // Handle other cases if needed
                         break;
                 }
+                $order->save();
+                return response()->json(['payment_status' => $order->status]);
+            } else {
+                return response()->json(['message' => 'Order not found'], 404);
             }
+        } catch (\Exception $e) {
+            error_log('Error in notification handler: ' . $e->getMessage());
+            return response()->json(['message' => 'Error handling notification'], 500);
         }
     }
-
-    
 }

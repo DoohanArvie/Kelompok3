@@ -48,21 +48,35 @@
                                     <tr>
                                         <th class="text-center">No.</th>
                                         <th class="text-center">Nama</th>
+                                        <th class="text-center">Gambar</th>
                                         <th class="text-center">Email</th>
+                                        <th class="text-center">No.HP</th>
+                                        <th class="text-center">Jenis Kelamin</th>
+                                        <th class="text-center">Usia</th>
+                                        <th class="text-center">Alamat</th>
                                         <th class="text-center">User Type</th>
-                                        <th class="text-center">Aksi</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($users as $index => $user)
-                                        <tr class="text-center">
+                                        <tr>
                                             <td class="text-center">{{ $index + 1 }}</td>
                                             <td>{{ $user->name }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>{{ $user->userType }}</td>
-                                            <td>
-                                            <a class="btn btn-warning btn-sm" href="{{ route('admin.dataUsers.edit', $user->id) }}">Edit</a>
+                                            <td class="text-center">
+                                                <img src="{{ asset('storage/' . $user->picture) }}" alt="Foto {{ $user->name }}" style="max-width: 70px; max-height: 80px;">
                                             </td>
+                                            <td class="text-center">{{ $user->email }}</td>
+                                            <td class="text-center">{{ $user->phone}}</td>
+                                            <td class="text-center">
+                                                @if(Auth::user()->gender === 'male')
+                                                    <p class="text-muted">Laki-laki</p>
+                                                @elseif(Auth::user()->gender === 'female')
+                                                    <p class="text-muted">Perempuan</p>
+                                                @endif
+                                            </td>
+                                            <td class="text-center">{{ $user->age}} Tahun</td>
+                                            <td>{{ $user->address}}</td>
+                                            <td class="text-center">{{ $user->userType }}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>

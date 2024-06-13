@@ -24,6 +24,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     @yield('addCss')
+
+    <style>
+        .sticky-footer {
+            bottom: 0;
+            width: 100%;
+            background-color: #ffffff; 
+            padding: 10px 0; 
+            text-align: center;
+            z-index: 1000; 
+        }
+
+    </style>
 </head>
 
 <body id="page-top">
@@ -108,13 +120,6 @@
                     <span>Peserta Kelas</span></a>
             </li>
 
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-file-invoice-dollar"></i>
-                    <span>Invoice</span></a>
-            </li>
-
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -142,25 +147,34 @@
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-                                                     
+                        
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
+                            @php
+                                $time = now()->format('H');
+
+                                if ($time < "11") {
+                                    $greeting = "Selamat pagi";
+                                } else if ($time < "16") {
+                                    $greeting = "Selamat siang";
+                                } else if ($time < "18") {
+                                    $greeting = "Selamat sore";
+                                } else {
+                                    $greeting = "Selamat malam";
+                                }
+                            @endphp
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ $greeting }}, {{ Auth::user()->name }}</span>
                                 <img class="img-profile rounded-circle"
                                     src="{{ Auth::user()->picture ? asset('storage/' . Auth::user()->picture) : asset('images/undraw_profile.svg') }}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="{{ route('profile.edit', Auth::id()) }}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
+                                    Edit Profil
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="login.blade.php" data-toggle="modal" data-target="#logoutModal">

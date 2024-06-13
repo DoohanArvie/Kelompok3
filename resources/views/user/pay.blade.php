@@ -13,30 +13,32 @@
         snap.pay('{{ $snapToken }}', {
             onSuccess: function(result) {
                 console.log(result);
-                window.location.href = '/';
+                window.location.href = '{{ route('user.cart')}}';
             },
             onPending: function(result) {
                 console.log(result);
-                window.location.href = '/';
+                window.location.href = '{{ route('user.cart')}}';
             },
             onError: function(result) {
-                console.log(result);
-                window.location.href = '/';
+                console.error('Error during payment:', result);
+                alert('Terjadi kesalahan saat pembayaran. Silakan coba lagi atau hubungi dukungan pelanggan.');
+                window.location.href = '{{ route('user.cart')}}';
             },
             onClose: function() {
-                alert('You closed the popup without finishing the payment');
+                alert('Anda menutup popup tanpa menyelesaikan pembayaran.');
+                window.location.href = '{{ route('user.cart')}}';
             }
         });
     };
 </script>
 <!-- Content Row -->
- <div class="row">
-        <!-- ISI KONTEN -->
-    </div>
+<div class="row">
+                        <!-- ISI KONTEN -->
+                    </div>
 
-</div>
-<!-- /.container-fluid -->
+                </div>
+                <!-- /.container-fluid -->
 
-</div>
-<!-- End of Main Content -->
+            </div>
+            <!-- End of Main Content -->
 @endsection

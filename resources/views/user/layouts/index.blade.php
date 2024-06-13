@@ -79,8 +79,7 @@
                                         <p class="mb-2"><strong>Password:</strong></p>
                                         <p class="text-muted d-inline">********</p>
                                     </div>
-                                    <button type="button" class="btn btn-secondary btn-sm">Ubah Password</button>
-                                </div>
+                                    <a href="{{ route('password.edit') }}" class="btn btn-danger">Ubah Password</a>                                </div>
                             </div>
                         </div>
                     </div>

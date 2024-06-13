@@ -7,23 +7,34 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PasswordController extends Controller
 {
     /**
+     * Show the form for updating the password.
+     */
+    public function edit()
+    {
+        return view('user.layouts.form-update-pass');
+    }
+
+    /**
      * Update the user's password.
      */
-    public function update(Request $request): RedirectResponse
+    public function update(Request $request)
     {
-        $validated = $request->validateWithBag('updatePassword', [
-            'current_password' => ['required', 'current_password'],
-            'password' => ['required', Password::defaults(), 'confirmed'],
+        $request->validate([
+            'password' => ['required', 'string', 'confirmed'],
         ]);
-
-        $request->user()->update([
-            'password' => Hash::make($validated['password']),
+    
+        Auth::user()->update([
+            'password' => Hash::make($request->password),
         ]);
-
-        return back()->with('status', 'password-updated');
+    
+        Alert::success('Success', 'Password Berhasil Diubah!');
+    
+        return redirect()->route('user.pesanan');
     }
 }

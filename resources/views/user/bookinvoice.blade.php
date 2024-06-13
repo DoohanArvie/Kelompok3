@@ -148,7 +148,7 @@
                             </td>
                             <td>
                                 Kode Invoice : #111{{ $booking->id_booking }}<br />
-                                Dicetak :  {{ \Carbon\Carbon::now()->locale('id')->format('d F Y') }}<br />
+                                Dicetak :  {{ \Carbon\Carbon::now()->locale('id')->isoFormat('D MMMM YYYY') }}<br />
                             </td>
                         </tr>
                     </table>

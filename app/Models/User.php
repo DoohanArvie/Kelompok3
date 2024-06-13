@@ -50,7 +50,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function isAdmin()
     {
-        return $this->userType === 'admin'; // Ubah 'role' sesuai dengan atribut yang menunjukkan peran pengguna sebagai admin
+        return $this->userType === 'admin'; 
     }
 
 }

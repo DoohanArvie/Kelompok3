@@ -129,14 +129,14 @@
                             @php
                                 $time = now()->format('H');
 
-                                if ($time < "11") {
-                                    $greeting = "Selamat pagi";
-                                } else if ($time < "16") {
-                                    $greeting = "Selamat siang";
-                                } else if ($time < "18") {
-                                    $greeting = "Selamat sore";
+                                if ($time < "4") {
+                                    $greeting = "Selamat Pagi";
+                                } else if ($time < "7") {
+                                    $greeting = "Selamat Siang";
+                                } else if ($time < "11") {
+                                    $greeting = "Selamat Sore";
                                 } else {
-                                    $greeting = "Selamat malam";
+                                    $greeting = "Selamat Malam";
                                 }
                             @endphp
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"

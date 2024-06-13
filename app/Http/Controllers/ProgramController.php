@@ -23,7 +23,11 @@ class ProgramController extends Controller
      */
     public function create()
     {
-        return view('admin.dataProgram.create');
+        // Fetch classes
+        $classes = Classes::all(); // Assuming you have a "Classes" model for your classes
+
+        // Pass classes to the view
+        return view('admin.dataProgram.create', compact('classes'));
     }
 
     /**

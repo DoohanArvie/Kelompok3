@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Classes;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Classes;
+use App\Models\Booking;
+use App\Models\User;
 
 class UserdasboardController extends Controller
 {
@@ -21,4 +22,5 @@ class UserdasboardController extends Controller
         $groupedClasses = $classes->groupBy('day');
         return view('user.schedule', compact('classes','groupedClasses'));
     }
+
 }

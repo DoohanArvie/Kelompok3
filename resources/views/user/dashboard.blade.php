@@ -71,7 +71,7 @@
                             <li class="scroll-to-section"><a href="#sewa-alat">Produk</a></li>
                             <li class="scroll-to-section"><a href="#our-classes">Kelas</a></li>
                             <li class="scroll-to-section"><a href="#contact-us">Ulasan</a></li>
-                            <li class="scroll-to-section"><a href="{{ route('user.pesanan') }}">Pesanan</a></li> 
+                            <li class="scroll-to-section"><a href="{{ route('user.pesanan') }}">Akunku</a></li> 
                             <li class="main-button">
                                 <form method="POST" action="{{ route('logout') }}">
                                         @csrf

@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/templatemo-training-studio.css') }}">
+
 </head>
 <body>
      <!-- ***** Schedule Starts***** -->
@@ -27,8 +28,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
-                    <div class="section-heading dark-bg">
-                        <h2>Jadwal <em>Kelas</em></h2>                      
+                    <div class="section-heading dark-bg mt-5">
+                        <h2 style="color: black;">Jadwal <em>Kelas</em></h2>                      
                     </div>
                 </div>
             </div>
@@ -58,19 +59,19 @@
                             </thead>
                             <tbody>
                                 @foreach($groupedClasses as $day => $classes)
-                                    @foreach($classes as $class)                                       
+                                    @foreach($classes as $class)                                      
                                             <tr>
                                                 <td class="day-time">{{ $class->class_name }}</td>                                                                                  
                                                 <td>{{ $class->trainer->name }}</td>
                                                 <td class="{{ strtolower($day) }} ts-item carbon" style="border-right:none;">
-                                                    {{ \Carbon\Carbon::parse($class->start_time)->format('g:iA') }} - {{ \Carbon\Carbon::parse($class->end_time)->format('g:iA') }}
+                                                    {{ \Carbon\Carbon::parse($class->start_time)->format('H:i') }} - {{ \Carbon\Carbon::parse($class->end_time)->format('H:i') }}
                                                 </td>   
                                             </tr>                                      
                                     @endforeach
                                 @endforeach
                             </tbody>
                         </table>
-                        <button class="btn btn-md btn-primary"></button>
+                        <button onclick="window.location.href='/dashboard'" class="btn btn-md btn-primary mt-3">Kembali</button>
                     </div>
                 </div>              
             </div>

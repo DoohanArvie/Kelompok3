@@ -115,7 +115,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('admin.dataSchedule.index') }}">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Peserta Kelas</span></a>
             </li>
@@ -153,11 +153,11 @@
                             @php
                                 $time = now()->format('H');
 
-                                if ($time < "11") {
+                                if ($time < "4") {
                                     $greeting = "Selamat pagi";
-                                } else if ($time < "16") {
+                                } else if ($time < "7") {
                                     $greeting = "Selamat siang";
-                                } else if ($time < "18") {
+                                } else if ($time < "11") {
                                     $greeting = "Selamat sore";
                                 } else {
                                     $greeting = "Selamat malam";

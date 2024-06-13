@@ -23,8 +23,6 @@ class HomeController extends Controller
             return redirect()->route('user');
         } else if ($usertype == 'admin') {
             return redirect()->route('admin');
-        } else if ($usertype == 'member') {
-            return view('member.dashboard');
         } else {
             return redirect()->back();
         }

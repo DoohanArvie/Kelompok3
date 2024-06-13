@@ -46,7 +46,7 @@ class UlasanController extends Controller
     $ulasan->save();
 
     // Redirect pengguna kembali ke halaman welcome dengan pesan sukses
-    return redirect()->route('dashboard')->with('success', 'Ulasan berhasil ditambahkan.');
+    return redirect()->route('user')->with('success', 'Ulasan berhasil ditambahkan.');
 }
 
 }

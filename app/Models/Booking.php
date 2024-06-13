@@ -29,8 +29,9 @@ class Booking extends Model
         return $this->belongsTo(Program::class, 'id_program');
     }
 
-    public function class()
+    public function classes()
     {
-        return $this->belongsTo(Classes::class, 'id_class');
+        return $this->belongsToMany(Classes::class, 'tbl_booking_classes', 'id_booking', 'id_class')->withPivot('start_date', 'end_date')->withTimestamps(); 
     }
+
 }

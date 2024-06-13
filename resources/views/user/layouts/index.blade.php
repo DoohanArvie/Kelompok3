@@ -71,7 +71,7 @@
 
                                 <!-- Edit Profile Button -->
                                 <div class="text-right mb-3">
-                                    <a href="{{ route('profile.edit', Auth::id()) }}" class="btn btn-primary btn-sm btn-edit-profile">Edit Profile</a>
+                                    <a href="{{ route('user.profile.edit', Auth::id()) }}" class="btn btn-primary btn-sm btn-edit-profile">Edit Profile</a>
                                 </div>
 
                                 <div class="d-flex justify-content-between align-items-center">

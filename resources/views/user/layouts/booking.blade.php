@@ -30,7 +30,7 @@
                                     <a href="{{ route('booking.generate.invoice', $booking->id_booking) }}" class="btn btn-primary">Cetak</a>
                                 </td>
                                 <td class="text-center">
-                                    <a href="{{ route('classtime_form', ['booking_id' => $booking->id_booking]) }}" class="btn btn-primary">Jadwal</a>
+                                    <a href="{{ route('classtime_form', ['booking' => $booking->id_booking]) }}" class="btn btn-primary">Jadwal</a>
                                 </td>
                             </tr>
                         @endforeach

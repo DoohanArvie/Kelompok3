@@ -31,7 +31,14 @@
 
                         <div class="form-group">
                             <label class="font-weight-bold">Nama Program</label>
-                            <input type="text" class="form-control @error('nama_program') is-invalid @enderror" name="nama_program" value="{{ old('nama_program') }}" placeholder="Masukkan Nama Program Kelas">
+                            <select class="form-control @error('nama_program') is-invalid @enderror" name="nama_program">
+                                <option value="">-- Pilih Nama Program Kelas --</option>
+                                @foreach($classes as $class)
+                                    <option value="{{ $class->class_name }}" {{ old('nama_program') == $class->class_name ? 'selected' : '' }}>
+                                        {{ $class->class_name }}
+                                    </option>
+                                @endforeach
+                            </select>
 
                             <!-- Error message untuk nama -->
                             @error('nama_program')
@@ -40,6 +47,7 @@
                             </div>
                             @enderror
                         </div>
+
 
                         <div class="form-group">
                             <label class="font-weight-bold">Gambar</label>

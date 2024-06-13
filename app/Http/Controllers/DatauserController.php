@@ -16,10 +16,17 @@ class DatauserController extends Controller
     }
 
     public function edit($id)
-    {
-        $user = User::findOrFail($id);
+{
+    $user = User::findOrFail($id);
+    if (auth()->user()->isAdmin()) {
+        // Jika pengguna adalah admin, tampilkan tampilan edit admin
         return view('profile.edit', compact('user'));
+    } else {
+        // Jika pengguna adalah user, tampilkan tampilan edit user
+        return view('user.profile.edit', compact('user'));
     }
+}
+    
 
     public function update(Request $request, $id)
 {
@@ -72,7 +79,7 @@ class DatauserController extends Controller
         if ($user->userType === 'user') {
             return view('user.profile.edit', compact('user'));
         } elseif ($user->userType === 'admin') {
-            return view('admin.profile.edit', compact('user'));
+            return view('profile.edit', compact('user'));
         }
 
         return redirect()->route('home')->with('error', 'Invalid user type.');

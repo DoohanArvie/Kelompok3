@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Booking;
 use App\Models\Program;
+use App\Models\Classes;
+use App\Models\BookingClass;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 class BookingController extends Controller
@@ -46,7 +48,7 @@ class BookingController extends Controller
 
         $booking->save();
 
-        return Redirect::route('user.booking')->with('success', 'Pesanan berhasil.');
+        return Redirect::route('user.booking')->with('success', 'Booking berhasil.');
     }
 
     public function bookingForm(Request $request)
@@ -73,4 +75,46 @@ class BookingController extends Controller
 
         return $pdf->download('bukti_booking_' . $booking->id_booking . '_' . $booking->user->name . '.pdf');
     }
+
+    public function showChooseScheduleForm($bookingId)
+    {
+        $booking = Booking::findOrFail($bookingId);
+        $classes = Classes::all();
+        $duration = $booking->duration;
+
+        return view('user.choose_schedule', compact('booking', 'classes', 'duration'));
+    }
+
+    public function chooseSchedule(Request $request, $bookingId)
+    {
+        $request->validate([
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after_or_equal:start_date',
+        ]);
+
+        $booking = Booking::findOrFail($bookingId);
+        $classIds = $request->input('class_ids');
+        $startDate = $request->input('start_date');
+        $endDate = $request->input('end_date');
+
+        $syncData = [];
+        foreach ($classIds as $classId) {
+            $syncData[$classId] = ['start_date' => $startDate, 'end_date' => $endDate];
+        }
+
+        $booking->classes()->sync($syncData);
+
+        return redirect()->route('user.myschedule')->with('success', 'Jadwal Kelas berhasil dipilih.');
+    }
+
+    public function mySchedule()
+    {
+        $user = Auth::user();
+        $bookings = Booking::where('user_id', $user->id)->get();
+        
+        $selectedClasses = BookingClass::whereIn('id_booking', $bookings->pluck('id_booking'))->with('booking.program', 'class')->get();
+
+        return view('user.layouts.myschedule', compact('selectedClasses'));
+    }
+
 }

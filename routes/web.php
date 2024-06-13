@@ -16,6 +16,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\UserclassController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\BookingClassController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -95,7 +96,6 @@ Route::post('/admin/dataProgram/{id}/update', [ProgramController::class, 'update
 Route::put('admin/dataProgram/{id}/update', [ProgramController::class, 'update'])->name('admin.dataProgram.update');
 Route::get('/admin/dataProgram/{id}/delete', [ProgramController::class, 'destroy'])->name('admin.dataProgram.destroy');
 
-
 // PROFIL
 
 // SELESAI PROFIL
@@ -136,15 +136,24 @@ Route::get('/classtime_form', [PaymentController::class, 'pay'])->name('classtim
 Route::get('/user/layouts/history', [OrderController::class, 'viewHistory'])->name('user.history')->middleware('auth');
 
 Route::get('/invoice/{id_order}', [OrderController::class, 'generateInvoice'])->name('generate.invoice'); 
-
 Route::get('/booking/{id_booking}', [BookingController::class, 'generateInvoice'])->name('booking.generate.invoice');
 
-// routes/web.php
 // routes/web.php
 Route::post('/payment/notification', [PaymentController::class, 'notificationHandler'])->name('payment.notification');
 Route::get('/order/status/{orderId}', [PaymentController::class, 'getStatus'])->name('order.status');
 
+// admin profil
 Route::get('/profile/edit/{id}', [DataUserController::class, 'edit'])->name('profile.edit');
 Route::put('/profile/update/{id}', [DataUserController::class, 'update'])->name('profile.update');
 
+// user prodil
+Route::get('/user/profile/edit/{id}', [DataUserController::class, 'edit'])->name('user.profile.edit');
+Route::put('/user/profile/update/{id}', [DataUserController::class, 'update'])->name('user.profile.update');
+
+
+Route::get('/bookings/{booking}/choose-schedule', [BookingController::class, 'showChooseScheduleForm'])->name('classtime_form');
+Route::post('/bookings/{booking}/choose-schedule', [BookingController::class, 'chooseSchedule'])->name('bookings.chooseSchedule');
+Route::get('/myschedule', [BookingController::class, 'mySchedule'])->name('user.myschedule');
+
+Route::get('/booking-classes', [BookingClassController::class, 'index'])->name('admin.dataSchedule.index');
 require __DIR__.'/auth.php';

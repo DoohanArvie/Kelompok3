@@ -48,4 +48,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    public function isAdmin()
+    {
+        return $this->userType === 'admin'; // Ubah 'role' sesuai dengan atribut yang menunjukkan peran pengguna sebagai admin
+    }
+
 }

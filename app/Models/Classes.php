@@ -28,4 +28,10 @@ class Classes extends Model
     {
         return $this->belongsTo(Trainer::class, 'id_trainers');
     }
+
+    public function bookings()
+    {
+        return $this->belongsToMany(Booking::class, 'tbl_booking_classes', 'id_class', 'id_booking')->withPivot('start_date', 'end_date');
+    }
+
 }

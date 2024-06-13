@@ -213,7 +213,7 @@
                         <h2>Profile <em>Gym</em></h2>
                         <img src="{{ asset('images/line-dec.png') }}" alt="waves">
                         <p class="motto">Godzilla Sport didirikan pada tahun 2010 dengan tujuan menyediakan fasilitas kebugaran terbaik bagi komunitas kami. Kami menawarkan berbagai layanan yang dirancang untuk membantu Anda mencapai tujuan kesehatan dan kebugaran Anda.
-                            Dengan dukungan trainer yang pprofesional di bidangnya serta fasilitas pelatihan yang lengkap, kami berkomitmen menjadi tempat terbaik untuk membina kesehatan Anda
+                            Dengan dukungan trainer yang profesional di bidangnya serta fasilitas pelatihan yang lengkap, kami berkomitmen menjadi tempat terbaik untuk membina kesehatan Anda
                         </p>
                     </div>
                 </div>
@@ -227,9 +227,9 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
-                        <h2>Pilih <em>Layanan</em></h2>
+                        <h2>Daftar <em>Layanan</em></h2>
                         <img src="{{ asset('images/line-dec.png') }}" alt="waves">
-                        <p>Nikmati berbagai program layanan kami untuk menunjang gaya hidup sehat anda</p>
+                        <p>Nikmati berbagai program kami untuk menunjang gaya hidup sehat anda</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -239,10 +239,11 @@
                                 <img src="{{ asset('images/features-first-icon.png') }}" alt="Basic Fitness">
                             </div>
                             <div class="right-content">
-                                <h4>Basic Fitness</h4>
-                                <p>Layanan dasar untuk kebugaran tubuh, mencakup penggunaan peralatan gym modern dan area latihan bebas.</p>
+                                <h4>Paket Fitness</h4>
+                                <div style="text-align: justify;">
+                                    <p>Nikmati berbagai fasilitas gym untuk membina kebugaran tubuh anda, program ini mencakup penggunaan peralatan gym modern dan area latihan yang bebas anda nikmati. Terdapat paket khusus sesuai kebutuhan Anda.</p>
+                                </div>
                                 <p><strong>Fasilitas:</strong> Ruang gym luas, peralatan kebugaran terbaru, loker, dan ruang ganti.</p>
-                                <a href="#" class="text-button">Discover More</a>
                             </div>
                         </li>
                         <li class="feature-item">
@@ -250,10 +251,10 @@
                                 <img src="{{ asset('images/features-first-icon.png') }}" alt="New Gym Training">
                             </div>
                             <div class="right-content">
-                                <h4>New Gym Training</h4>
-                                <p>Program latihan gym terbaru dengan panduan dari pelatih profesional, dirancang untuk pemula dan mereka yang ingin memulai gaya hidup sehat.</p>
-                                <p><strong>Fasilitas:</strong> Sesi konsultasi dengan pelatih, program latihan personal, dan dukungan nutrisi.</p>
-                                <a href="#" class="text-button">Discover More</a>
+                                <h4>Fasilitas & Peralatan</h4>
+                                <div style="text-align: justify">
+                                    <p>Kami menyediakan berbagai fasilitas gym untuk mendukung kebutuhan anda, mulai dari alat-alat latihan berstandar, tempat latihan yang nyaman dan bersih, trainer yang profesional dan berpengalaman dibidangnya serta pelayanan yang ramah dan berbagai fasilitas tambahan yang dapat anda nikmati.</p>
+                                </div>                    
                             </div>
                         </li>
                     </ul>
@@ -265,10 +266,11 @@
                                 <img src="{{ asset('images/features-first-icon.png') }}" alt="Body Building Course">
                             </div>
                             <div class="right-content">
-                                <h4>Body Building Program</h4>
-                                <p>Program khusus untuk body building dengan pelatihan intensif dan panduan nutrisi lengkap.</p>
-                                <p><strong>Fasilitas:</strong> Area angkat beban berat, sesi pelatihan personal, dan konsultasi gizi.</p>
-                                <a href="#" class="text-button">Discover More</a>
+                                <h4>Program Kelas Khusus</h4>
+                                <div style="text-align: justify">
+                                    <p>Kelas yang dipandu oleh trainer profesional dan tersertifikasi, dirancang dengan mengikuti standarisasi yang ada. Terdapat kelas Body Combat, Thai Boxing, Mat Pilates, Vinyasa Yoga, Fit Cycle dan Zumba</p>
+                                </div>
+                                <p><strong>Fasilitas:</strong> Latihan dengan trainer selama 90 menit setiap sesinya, ruangan latihan yang nyaman, loker dan tempat ganti.</p>                     
                             </div>
                         </li>
                         <li class="feature-item">
@@ -276,10 +278,10 @@
                                 <img src="{{ asset('images/features-first-icon.png') }}" alt="Yoga Training">
                             </div>
                             <div class="right-content">
-                                <h4>Yoga Training</h4>
-                                <p>Kelas yoga untuk berbagai tingkat keahlian yang membantu meningkatkan fleksibilitas dan keseimbangan.</p>
-                                <p><strong>Fasilitas:</strong> Studio yoga dengan suasana tenang, matras yoga, dan instruktur berpengalaman.</p>
-                                <a href="#" class="text-button">Discover More</a>
+                                <h4>Program Nutrisi</h4>
+                                <div style="text-align: justify">
+                                <p>Program ini merupakan program pelengkap dan fasilitas tambahan untuk membantu anggota gym mencapai tujuan kebugaran tubuh dengan memperbaiki pola makan dan nutrisi, program ini didampingi oleh petugas yang ahli dibidangnya. Anggota gym bisa menikmati program ini secara gratis.</p>
+                                </div>
                             </div>
                         </li>
                     </ul>
@@ -330,7 +332,7 @@
                 <div class="col-lg-10 offset-lg-1">
                     <div class="cta-content">
                         <h2>Jadilah <em>Motivasi</em> bagi <em>diri sendiri</em>!</h2>
-                        <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula, sit amet dapibus odio augue eget libero. Morbi tempus mauris a nisi luctus imperdiet.</p>
+                        <p></p>
                         <div class="main-button scroll-to-section">
                             <a href="{{ route('register') }}">Daftar</a>
                         </div>
@@ -359,7 +361,6 @@
                     @foreach($programs as $program)
                         <li><a href='#tabs-{{ $loop->iteration }}'><img src="{{ asset('images/tabs-first-icon.png') }}" alt="">{{ $program->nama_program }}</a></li>
                     @endforeach
-                    <div class="main-rounded-button"><a href="#schedule">Lihat Jadwal</a></div>
                 </ul>
               </div>
               <div class="col-lg-8">
@@ -451,7 +452,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div id="map">
-                      <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="600px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                      <iframe src="https://maps.google.com/maps?q=Celebrity+Fitness+-+Paragon+Semarang&t=&z=17&ie=UTF8&iwloc=&output=embed" width="100%" height="600px" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-xs-12">
@@ -499,34 +500,34 @@
                     <ul class="sosmed d-flex">
                         <li>
                             <a href="https://wa.me/085772169307">
-                                    <svg class="whatsapp">
-                                        <use xlink:href="#whatsapp" />
-                                    </svg>
+                                <svg class="whatsapp">
+                                    <use xlink:href="#whatsapp" />
+                                </svg>
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.instagram.com/">
-                                    <svg class="instagram">
-                                        <use xlink:href="#instagram" />
-                                    </svg>
+                            <a href="https://www.instagram.com/celebrityfitnesssemarang?igsh=MW8yN3E1bHBkbTIzaQ==">
+                                <svg class="instagram">
+                                    <use xlink:href="#instagram" />
+                                </svg>
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.facebook.com/">
+                            <a href="https://www.facebook.com/goldsgymID/">
                                 <svg class="facebook">
                                     <use xlink:href="#facebook" />
                                 </svg>
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.youtube.com/">
-                                        <svg class="youtube">
-                                            <use xlink:href="#youtube" />
-                                        </svg>
+                            <a href="https://youtube.com/@celebrityfitnessofficial?si=BWucDjtquCleF5wy">
+                                <svg class="youtube">
+                                    <use xlink:href="#youtube" />
+                                </svg>
                             </a>
                         </li>
                         <li>
-                            <a href="https://tiktok.com/">
+                            <a href="https://vm.tiktok.com/ZSYh3e68K/">
                                 <svg class="tiktok">
                                     <use xlink:href="#tiktok" />
                                 </svg>

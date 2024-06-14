@@ -120,12 +120,12 @@ body {
 }
 
 ::selection {
-  background: #ed563b;
+  background: #008DDA;
   color: #fff;
 }
 
 ::-moz-selection {
-  background: #ed563b;
+  background: #008DDA;
   color: #fff;
 }
 
@@ -163,7 +163,7 @@ body {
 
 .section-heading h2 em {
   font-style: normal;
-  color: #ed563b;
+  color: #008DDA;
 }
 
 .section-heading img {
@@ -182,7 +182,7 @@ body {
   display: inline-block;
   font-size: 15px;
   padding: 12px 20px;
-  background-color: #ed563b;
+  background-color: #008DDA;
   color: #fff;
   text-align: center;
   font-weight: 400;
@@ -191,7 +191,7 @@ body {
 }
 
 .main-button a:hover {
-  background-color: #f9735b;
+  background-color: #006DDA;
 }
 
 /* Card Product Fitnes */
@@ -359,7 +359,7 @@ body {
 }
 
 .cart-btn {
-  background-color: #ed563b;
+  background-color: #008DDA;
   color: #fff; 
   border: none;
   padding: 10px 20px;
@@ -375,11 +375,11 @@ body {
 }
 
 .cart-btn:hover {
-  background-color: #f9735b; 
+  background-color: #006DDA; 
 }
 
 .add-to-cart-btn {
-  background-color: #ed563b;
+  background-color: #008DDA;
   color: #fff; 
   border: none;
   padding: 10px 20px;
@@ -390,7 +390,8 @@ body {
 }
 
 .add-to-cart-btn:hover {
-  background-color: #f9735b; 
+  background-color: #006DDA; 
+  color: #eee;
 }
 
 .add-to-cart-btn a {
@@ -488,7 +489,7 @@ header
 
 .header-area .main-nav .logo em {
   font-style: normal;
-  color: #ed563b;
+  color: #008DDA;
   font-weight: 900;
 }
 
@@ -534,7 +535,7 @@ header
   display: inline-block;
   font-size: 13px;
   padding: 11px 17px;
-  background-color: #ed563b;
+  background-color: #008DDA;
   color: #fff;
   text-align: center;
   font-weight: 400;
@@ -546,19 +547,19 @@ header
 }
 
 .header-area .main-nav .nav li:last-child a:hover {
-  background-color: #f9735b;
+  background-color: #008DDA;
   opacity: 1;
 }
 
 .header-area .main-nav .nav li:hover a,
 .header-area .main-nav .nav li a.active {
-  color: #ed563b!important;
+  color: #008DDA!important;
   opacity: 1;
 }
 
 .background-header .main-nav .nav li:hover a,
 .background-header .main-nav .nav li a.active {
-  color: #ed563b!important;
+  color: #008DDA!important;
   opacity: 1;
 }
 
@@ -701,7 +702,7 @@ header
   }
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
-    color: #ed563b!important;
+    color: #008DDA!important;
     opacity: 1;
   }
   .header-area {
@@ -738,15 +739,15 @@ header
   }
   .header-area .main-nav .nav li:last-child {
     width: 100%;
-    background-color: #ed563b;
+    background-color: #008DDA;
     color: #fff;
   }
   .header-area .main-nav .nav li:last-child a {
-    background-color: #ed563b!important;
+    background-color: #008DDA!important;
   }
   .header-area .main-nav .nav li:last-child a:hover,
   .header-area .main-nav .nav li:last-child:hover a {
-    background-color: #ed563b!important;
+    background-color: #006DDA!important;
     color: #fff!important;
   }
   .header-area.header-sticky .nav {
@@ -772,7 +773,7 @@ header
   }
   .header-area .main-nav .nav li a:hover {
     background: #eee !important;
-    color: #ed563b!important;
+    color: #006DDA!important;
   }
   .header-area .main-nav .nav li.submenu ul {
     position: relative;
@@ -891,7 +892,7 @@ banner
 
 .main-banner .caption h2 em {
   font-style: normal;
-  color: #ed563b;
+  color: #008DDA;
   font-weight: 900;
 }
 
@@ -914,6 +915,7 @@ features
 .feature-item .left-icon img {
   float: left;
   margin-right: 30px;
+  width: 70px;
 }
 
 .feature-item .right-content {
@@ -964,7 +966,7 @@ subscribe
 
 .cta-content h2 em {
   font-style: normal;
-  color: #ed563b;
+  color: #008DDA;
 }
 
 .cta-content p {
@@ -980,6 +982,8 @@ subscribe
 Our Classes
 --------------------------------------------
 */
+
+
 
 #our-classes {
   margin-bottom: 140px;
@@ -1022,14 +1026,16 @@ Our Classes
   font-size: 19px;
   letter-spacing: 0.5px;
   font-weight: 600;
-  background-color: #ed563b;
+  background-color: #008DDA;
 }
 #tabs .main-rounded-button a:hover {
-  background-color: #f9735b;
+  background-color: #006DDA;
 }
+
 #tabs ul li a img {
   max-width: 100%;
   margin-right: 20px;
+  width: 50px;
 }
 #tabs ul .ui-tabs-active span {
   background: #faf5b2;
@@ -1038,7 +1044,7 @@ Our Classes
   border-bottom: none;
 }
 #tabs ul .ui-tabs-active a {
-  color: #ed563b;
+  color: #008DDA;
 }
 #tabs ul .ui-tabs-active span {
   color: #1e1e1e;
@@ -1077,7 +1083,7 @@ schedule
 
 #schedule {
   padding: 0px 0px 140px 0px;
-  background-image: url(../images/schedule-bg.jpg);
+  background-image: url(../images/bg.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1165,7 +1171,7 @@ schedule
 }
 #schedule .filters ul li.active,
 #schedule .filters ul li:hover {
-  color: #ed563b;
+  color: #008dda;
 }
 #schedule .filters-content {
   margin-top: 50px;
@@ -1312,7 +1318,7 @@ contact
   display: inline-block;
   font-size: 13px;
   padding: 11px 17px;
-  background-color: #ed563b;
+  background-color: #008DDA;
   color: #fff;
   text-align: center;
   font-weight: 400;
@@ -1324,7 +1330,7 @@ contact
 }
 
 .contact-form button:hover {
-  background-color: #f9735b;
+  background-color: #006DDA;
 }
 
 

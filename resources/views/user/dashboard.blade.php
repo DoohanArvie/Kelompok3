@@ -99,7 +99,7 @@
     <!-- ***** Main Banner Area Start ***** -->
     <div class="main-banner" id="top">
         <video autoplay muted loop id="bg-video">
-            <source src="{{ asset('images/gym-video.mp4') }}" type="video/mp4" />
+            <source src="{{ asset('images/3.mp4') }}" type="video/mp4" />
         </video>
 
         <div class="video-overlay header-text">
@@ -119,7 +119,7 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
                         <h2>Fitness</h2>
-                        <img src="{{ asset('images/line-dec.png') }}" alt="waves">
+                        <img src="{{ asset('images/arrow-down.png') }}" alt="waves">
                         <p>Kami menyediakan berbagai peralatan olahraga berkualitas tinggi sesuai dengan kebutuhan Gym Anda</p>
                     </div>
                 </div>
@@ -152,7 +152,7 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
                         <h2><em>Kelas</em> Kami</h2>
-                        <img src="{{ asset('images/line-dec.png') }}" alt="">
+                        <img src="{{ asset('images/arrow-down.png') }}" alt="">
                         <p>Bentuk tubuhmu dan mulai hidup sehat sekarang</p>
                     </div>
                 </div>
@@ -161,7 +161,7 @@
               <div class="col-lg-4">
                 <ul>
                     @foreach($programs as $program)
-                        <li><a href='#tabs-{{ $loop->iteration }}'><img src="{{ asset('images/tabs-first-icon.png') }}" alt="">{{ $program->nama_program }}</a></li>
+                        <li><a href='#tabs-{{ $loop->iteration }}'><img src="{{ asset('images/fitur.jpg') }}" alt="">{{ $program->nama_program }}</a></li>
                     @endforeach
                     <div class="main-rounded-button"><a href="{{ url('/schedule')}}">Lihat Jadwal</a></div>
                 </ul>

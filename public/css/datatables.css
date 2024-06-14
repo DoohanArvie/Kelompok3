@@ -388,6 +388,7 @@ div.dt-container div.dt-length select {
   margin-right: 0.5em;
 }
 div.dt-container div.dt-search label {
+  color: #008dda;
   font-weight: normal;
   white-space: nowrap;
   text-align: left;
@@ -399,6 +400,7 @@ div.dt-container div.dt-search input {
   width: auto;
 }
 div.dt-container div.dt-info {
+  color: #008dda;
   padding-top: 0.85em;
   white-space: nowrap;
 }

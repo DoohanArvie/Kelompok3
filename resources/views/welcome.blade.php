@@ -9,6 +9,7 @@
   <meta name="author" content="Kelompok 3 Godzilla FullStack 4">
   <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  
   <title>Gym and Court App</title>
 
   <!-- Additional CSS Files -->
@@ -189,7 +190,7 @@
     <!-- ***** Main Banner Area Start ***** -->
     <div class="main-banner" id="top">
         <video autoplay muted loop id="bg-video">
-            <source src="{{ asset('images/gym-video.mp4') }}" type="video/mp4" />
+            <source src="{{ asset('images/3.mp4') }}" type="video/mp4" />
         </video>
 
         <div class="video-overlay header-text">
@@ -211,7 +212,7 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
                         <h2>Profile <em>Gym</em></h2>
-                        <img src="{{ asset('images/line-dec.png') }}" alt="waves">
+                        <img src="{{ asset('images/arrow-down.png') }}" alt="waves">
                         <p class="motto">Godzilla Sport didirikan pada tahun 2010 dengan tujuan menyediakan fasilitas kebugaran terbaik bagi komunitas kami. Kami menawarkan berbagai layanan yang dirancang untuk membantu Anda mencapai tujuan kesehatan dan kebugaran Anda.
                             Dengan dukungan trainer yang profesional di bidangnya serta fasilitas pelatihan yang lengkap, kami berkomitmen menjadi tempat terbaik untuk membina kesehatan Anda
                         </p>
@@ -228,7 +229,7 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
                         <h2>Daftar <em>Layanan</em></h2>
-                        <img src="{{ asset('images/line-dec.png') }}" alt="waves">
+                        <img src="{{ asset('images/arrow-down.png') }}" alt="waves">
                         <p>Nikmati berbagai program kami untuk menunjang gaya hidup sehat anda</p>
                     </div>
                 </div>
@@ -236,7 +237,7 @@
                     <ul class="features-items">
                         <li class="feature-item">
                             <div class="left-icon">
-                                <img src="{{ asset('images/features-first-icon.png') }}" alt="Basic Fitness">
+                                <img src="{{ asset('images/fitur.jpg') }}" alt="Basic Fitness">
                             </div>
                             <div class="right-content">
                                 <h4>Paket Fitness</h4>
@@ -248,7 +249,7 @@
                         </li>
                         <li class="feature-item">
                             <div class="left-icon">
-                                <img src="{{ asset('images/features-first-icon.png') }}" alt="New Gym Training">
+                                <img src="{{ asset('images/fitur.jpg') }}" alt="New Gym Training">
                             </div>
                             <div class="right-content">
                                 <h4>Fasilitas & Peralatan</h4>
@@ -263,7 +264,7 @@
                     <ul class="features-items">
                         <li class="feature-item">
                             <div class="left-icon">
-                                <img src="{{ asset('images/features-first-icon.png') }}" alt="Body Building Course">
+                                <img src="{{ asset('images/fitur.jpg') }}" alt="Body Building Course">
                             </div>
                             <div class="right-content">
                                 <h4>Program Kelas Khusus</h4>
@@ -275,7 +276,7 @@
                         </li>
                         <li class="feature-item">
                             <div class="left-icon">
-                                <img src="{{ asset('images/features-first-icon.png') }}" alt="Yoga Training">
+                                <img src="{{ asset('images/fitur.jpg') }}" alt="Yoga Training">
                             </div>
                             <div class="right-content">
                                 <h4>Program Nutrisi</h4>
@@ -299,7 +300,7 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
                         <h2>Fitness</h2>
-                        <img src="{{ asset('images/line-dec.png') }}" alt="waves">
+                        <img src="{{ asset('images/arrow-down.png') }}" alt="waves">
                         <p>Kami menyediakan berbagai peralatan olahraga berkualitas tinggi sesuai dengan kebutuhan Gym Anda</p>
                     </div>
                 </div>
@@ -350,16 +351,16 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
                         <h2><em>Kelas</em> Kami</h2>
-                        <img src="{{ asset('images/line-dec.png') }}" alt="">
+                        <img src="{{ asset('images/arrow-down.png') }}" alt="">
                         <p>Bentuk tubuhmu dan mulai hidup sehat sekarang</p>
                     </div>
                 </div>
             </div>
             <div class="row" id="tabs">
               <div class="col-lg-4">
-                <ul>
+                <ul class="logo-kelas">
                     @foreach($programs as $program)
-                        <li><a href='#tabs-{{ $loop->iteration }}'><img src="{{ asset('images/tabs-first-icon.png') }}" alt="">{{ $program->nama_program }}</a></li>
+                        <li><a href='#tabs-{{ $loop->iteration }}'><img src="{{ asset('images/fitur.jpg') }}" alt="">{{ $program->nama_program }}</a></li>
                     @endforeach
                 </ul>
               </div>
@@ -389,7 +390,7 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
                         <h2>Instruktur <em>Kami</em></h2>
-                        <img src="{{ asset('images/line-dec.png') }}" alt="">
+                        <img src="{{ asset('images/arrow-down.png') }}" alt="">
                         <p>Kami memiliki Instruktur yang profesional dan berpengalaman di bidangnya, memastikan agar Anda mendapatkan kualitas pelatihan terbaik</p>
                     </div>
                 </div>

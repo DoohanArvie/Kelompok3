@@ -21,8 +21,12 @@
                 </thead>
                 <tbody>
                     @foreach($orders as $order)
-                        @if(\Carbon\Carbon::parse($order->order_date)->greaterThanOrEqualTo(\Carbon\Carbon::now()))
-                            <tr id="order_{{ $order->id_order }}">
+                    @php
+                                $orderDate = \Carbon\Carbon::parse($order->order_date);
+                                $orderDate->setTimezone('Asia/Jakarta');
+                                $today = \Carbon\Carbon::now('Asia/Jakarta');
+                            @endphp
+                            @if($orderDate->isToday() || $orderDate->greaterThan($today))                            <tr id="order_{{ $order->id_order }}">
                                 <td class="text-center">{{ $order->id_order }}</td>
                                 <td class="text-center">{{ $order->product->name_product }}</td>
                                 <td class="text-center">{{ \Carbon\Carbon::parse($order->order_date)->locale('id')->isoFormat('D MMMM YYYY') }}</td>
